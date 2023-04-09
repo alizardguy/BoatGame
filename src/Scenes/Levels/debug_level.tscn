@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7otswbyblheq"]
+[gd_scene load_steps=11 format=3 uid="uid://c7otswbyblheq"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/oceanToon.gdshader" id="1_7m3tt"]
+[ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="2_2tb5w"]
+[ext_resource type="PackedScene" uid="uid://xdrva8gcannv" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ybka"]
 render_priority = 0
 shader = ExtResource("1_7m3tt")
 shader_parameter/WATER_COL = Color(0.027451, 0.337255, 0.792157, 1)
-shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/WATER2_COL = Color(0.027451, 0.313726, 0.705882, 1)
 shader_parameter/FOAM_COL = Color(0.8125, 0.9609, 0.9648, 1)
-shader_parameter/distortion_speed = 2.0
+shader_parameter/distortion_speed = 1.0
 shader_parameter/tile = Vector2(200, 200)
 shader_parameter/wave_speed = 1.0
 
@@ -21,23 +23,62 @@ size = Vector2(90, 90)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gavk1"]
 size = Vector3(9, 0.5, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f814p"]
+render_priority = 0
+shader = ExtResource("2_2tb5w")
+shader_parameter/color = Color(0.513726, 0.415686, 0.215686, 1)
+shader_parameter/shadow = 0.621
+shader_parameter/shadow_width = 0.001
+shader_parameter/shadow_color = Color(0.705, 0.705, 0.705, 0.705)
+shader_parameter/_specular_smoothness = 0.01
+shader_parameter/_specular_strength = 0.081
+shader_parameter/_glossiness = 0.0
+shader_parameter/_rim_size = 0.269
+shader_parameter/_rim_smoothness = 0.5
+
 [sub_resource type="BoxMesh" id="BoxMesh_ap4p0"]
+material = SubResource("ShaderMaterial_f814p")
 size = Vector3(9, 0.5, 9)
+
+[sub_resource type="SphereMesh" id="SphereMesh_40yrb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vh2t8"]
+render_priority = 0
+shader = ExtResource("2_2tb5w")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/shadow = 0.5
+shader_parameter/shadow_width = 0.0
+shader_parameter/shadow_color = Color(0.705, 0.705, 0.705, 0.705)
+shader_parameter/_specular_smoothness = 0.01
+shader_parameter/_specular_strength = 0.075
+shader_parameter/_glossiness = 0.1
+shader_parameter/_rim_size = 0.5
+shader_parameter/_rim_smoothness = 0.01
 
 [node name="DebugLevel" type="Node3D"]
 
 [node name="Water" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Water"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0244868, -0.0420727, 0.00571525)
 mesh = SubResource("PlaneMesh_b65ff")
 
 [node name="DebugIsland" type="Node3D" parent="."]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="DebugIsland"]
+[node name="Floor" type="StaticBody3D" parent="DebugIsland"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="DebugIsland/StaticBody3D"]
+[node name="Floor Collision" type="CollisionShape3D" parent="DebugIsland/Floor"]
 shape = SubResource("BoxShape3D_gavk1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="DebugIsland/StaticBody3D"]
+[node name="Floor Mesh" type="MeshInstance3D" parent="DebugIsland/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291047, -0.0714965, -0.0212035)
 mesh = SubResource("BoxMesh_ap4p0")
 skeleton = NodePath("../..")
+
+[node name="test orb" type="MeshInstance3D" parent="DebugIsland"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90316, 0.877505, 0)
+mesh = SubResource("SphereMesh_40yrb")
+surface_material_override/0 = SubResource("ShaderMaterial_vh2t8")
+
+[node name="Player" parent="." instance=ExtResource("3_13rih")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.632892, 0.755443, 0.341038)

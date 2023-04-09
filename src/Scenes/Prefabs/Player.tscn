@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://xdrva8gcannv"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="1_b6a1p"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pm4tw"]
+radius = 0.3
+height = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83w5j"]
+render_priority = 0
+shader = ExtResource("1_b6a1p")
+shader_parameter/color = Color(0.737255, 0.458824, 0.290196, 1)
+shader_parameter/shadow = 0.5
+shader_parameter/shadow_width = 0.0
+shader_parameter/shadow_color = Color(0.705, 0.705, 0.705, 0.705)
+shader_parameter/_specular_smoothness = 0.01
+shader_parameter/_specular_strength = 0.075
+shader_parameter/_glossiness = 0.1
+shader_parameter/_rim_size = 0.5
+shader_parameter/_rim_smoothness = 0.01
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6tewa"]
+material = SubResource("ShaderMaterial_83w5j")
+radius = 0.3
+height = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+
+[node name="Capsule Collider" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_pm4tw")
+
+[node name="visual" type="MeshInstance3D" parent="Capsule Collider"]
+mesh = SubResource("CapsuleMesh_6tewa")
