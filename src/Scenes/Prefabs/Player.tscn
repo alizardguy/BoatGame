@@ -40,4 +40,4 @@ transform = Transform3D(1, 0, 0, 0, 0.944313, 0.329048, 0, -0.329048, 0.944313, 
 script = ExtResource("3_7hal2")
 
 [node name="Camera3D" type="Camera3D" parent="CameraGimbal"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 2.38419e-07, 4)
