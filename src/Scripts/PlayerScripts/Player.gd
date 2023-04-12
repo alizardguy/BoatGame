@@ -1,12 +1,24 @@
 extends CharacterBody3D
 
+# Player locomotion vars
+var currentSpeed : float = 0;
+const walkSpeed : float = 5.0;
+const runSpeed : float = 7.0;
+const JUMP_VELOCITY : float = 4.5;
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+# Player combat vars
+var currentHp : int = 100;
+var maxHp : int = 100;
+var damage : int = 10;
+
+var attackRate : float = 0.3;
+var lastAttackTime : int = 0;
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+func _ready():
+	currentSpeed = walkSpeed;
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -22,10 +34,10 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		velocity.x = direction.x * currentSpeed
+		velocity.z = direction.z * currentSpeed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, currentSpeed);
+		velocity.z = move_toward(velocity.z, 0, currentSpeed);
 
 	move_and_slide()

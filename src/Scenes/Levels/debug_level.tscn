@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Assets/Shaders/oceanToon.gdshader" id="1_7m3tt"]
 [ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="2_2tb5w"]
-[ext_resource type="PackedScene" uid="uid://xdrva8gcannv" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
+[ext_resource type="PackedScene" uid="uid://dl85ec2cwq75b" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ybka"]
 render_priority = 0

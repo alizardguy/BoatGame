@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://xdrva8gcannv"]
+[gd_scene load_steps=7 format=3 uid="uid://dl85ec2cwq75b"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScripts/Player.gd" id="1_ayc0t"]
 [ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="1_b6a1p"]
-[ext_resource type="Script" path="res://Scripts/PlayerScripts/CameraGimbal.gd" id="3_7hal2"]
+[ext_resource type="Script" path="res://Scripts/PlayerScripts/CameraOrbit.gd" id="3_yl8ni"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pm4tw"]
 radius = 0.3
@@ -35,9 +35,9 @@ shape = SubResource("CapsuleShape3D_pm4tw")
 [node name="visual" type="MeshInstance3D" parent="Capsule Collider"]
 mesh = SubResource("CapsuleMesh_6tewa")
 
-[node name="CameraGimbal" type="Node3D" parent="."]
+[node name="CameraOrbit" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.944313, 0.329048, 0, -0.329048, 0.944313, 0, 0.35, 0)
-script = ExtResource("3_7hal2")
+script = ExtResource("3_yl8ni")
 
-[node name="Camera3D" type="Camera3D" parent="CameraGimbal"]
+[node name="Camera3D" type="Camera3D" parent="CameraOrbit"]
 transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 2.38419e-07, 4)
