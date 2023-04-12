@@ -19,7 +19,7 @@ func _process(delta):
 	if rotating:
 		next_mouse_position = get_viewport().get_mouse_position()
 		xChange = (next_mouse_position.y - prev_mouse_position.y) * .1 * delta
-		rotate_x(xChange);
+		rotate_x(-xChange);
 		if rotation.x < -1.466:
 			rotation.x = -1.466
 		elif rotation.x > 0.224:
