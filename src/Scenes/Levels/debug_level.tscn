@@ -21,7 +21,7 @@ add_uv2 = true
 size = Vector2(90, 90)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gavk1"]
-size = Vector3(9, 0.5, 9)
+size = Vector3(8.945, 0.37, 8.945)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f814p"]
 render_priority = 0
