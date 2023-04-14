@@ -6,7 +6,7 @@ var hp_display;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player_vars = get_node("/root/PlayerVariables");
-	hp_display = get_node("HPdebug");
+	hp_display = get_node("hp_debug");
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
