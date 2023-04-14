@@ -6,9 +6,6 @@ const walkSpeed : float = 5.0;
 const runSpeed : float = 7.0;
 const JUMP_VELOCITY : float = 4.5;
 
-var attackRate : float = 0.3;
-var lastAttackTime : int = 0;
-
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 

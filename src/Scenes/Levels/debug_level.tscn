@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://c7otswbyblheq"]
+[gd_scene load_steps=15 format=3 uid="uid://c7otswbyblheq"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/oceanToon.gdshader" id="1_7m3tt"]
 [ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="2_2tb5w"]
 [ext_resource type="PackedScene" uid="uid://dl85ec2cwq75b" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
+[ext_resource type="PackedScene" uid="uid://b3skrw3yc1oum" path="res://Scenes/Interface/user_interface.tscn" id="4_7foum"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ybka"]
 render_priority = 0
@@ -82,27 +83,27 @@ volumetric_fog_sky_affect = 0.659
 adjustment_enabled = true
 adjustment_saturation = 1.67
 
-[node name="DebugLevel" type="Node3D"]
+[node name="debug_level" type="Node3D"]
 
-[node name="Water" type="Node3D" parent="."]
+[node name="water" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Water"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0244868, -0.0420727, 0.00571525)
 mesh = SubResource("PlaneMesh_b65ff")
 
-[node name="DebugIsland" type="Node3D" parent="."]
+[node name="debug_island" type="Node3D" parent="."]
 
-[node name="Floor" type="StaticBody3D" parent="DebugIsland"]
+[node name="Floor" type="StaticBody3D" parent="debug_island"]
 
-[node name="Floor Collision" type="CollisionShape3D" parent="DebugIsland/Floor"]
+[node name="Floor Collision" type="CollisionShape3D" parent="debug_island/Floor"]
 shape = SubResource("BoxShape3D_gavk1")
 
-[node name="Floor Mesh" type="MeshInstance3D" parent="DebugIsland/Floor"]
+[node name="Floor Mesh" type="MeshInstance3D" parent="debug_island/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0291047, -0.0714965, -0.0212035)
 mesh = SubResource("BoxMesh_ap4p0")
 skeleton = NodePath("../..")
 
-[node name="test orb" type="MeshInstance3D" parent="DebugIsland"]
+[node name="test orb" type="MeshInstance3D" parent="debug_island"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.90316, 0.877505, 0)
 mesh = SubResource("SphereMesh_40yrb")
 surface_material_override/0 = SubResource("ShaderMaterial_vh2t8")
@@ -117,3 +118,5 @@ transform = Transform3D(1, 0, 0, 0, 0.469225, 0.883079, 0, -0.883079, 0.469225, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
 environment = SubResource("Environment_nl4f7")
+
+[node name="user_interface" parent="." instance=ExtResource("4_7foum")]
