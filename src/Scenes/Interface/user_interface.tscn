@@ -15,5 +15,11 @@ script = ExtResource("1_w1xjv")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-tooltip_text = "Debug health display"
 text = "0/0 HP"
+
+[node name="fps_debug" type="Label" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 41.0
+offset_bottom = 46.0
+text = "0 FPS"
