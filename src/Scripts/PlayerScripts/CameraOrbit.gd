@@ -11,8 +11,7 @@ var mouseDelta : Vector2 = Vector2();
 @onready var player = get_parent();
 
 func _ready():
-	
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED);
+	pass
 
 func _input(event):
 	
