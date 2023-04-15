@@ -1,7 +1,9 @@
 extends Node
 
+# player health stuff
 var playerHealth : int = 100;
 var maxHealth : int = 100;
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

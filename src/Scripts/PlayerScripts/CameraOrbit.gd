@@ -1,7 +1,7 @@
 extends Node3D
 
 # camera setting vars
-var lookSensitivity : float = 15.0;
+var lookSensitivity : float = 15.0; # todo: expose to settings menu later
 var minLookAngle : float = -55.0;
 var maxLookAngle : float = 20.0;
 
@@ -9,9 +9,6 @@ var maxLookAngle : float = 20.0;
 var mouseDelta : Vector2 = Vector2();
 
 @onready var player = get_parent();
-
-func _ready():
-	pass
 
 func _input(event):
 	
