@@ -6,12 +6,19 @@ const walk_speed : float = 5.0;
 const run_speed : float = 7.0;
 const jump_velocity : float = 4.5;
 
+# global vars
+@onready var player_vars = get_node("/root/PlayerVariables");
+
+# Get third person player camera
+@onready var player_camera: Camera3D = get_node("CameraOrbit/Camera3D")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	current_speed = walk_speed;
 
+# main physics process
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,5 +38,23 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, current_speed);
 		velocity.z = move_toward(velocity.z, 0, current_speed);
-
+		
 	move_and_slide();
+	
+	if Input.is_action_just_pressed("move_run"):
+		start_move_run();
+	if Input.is_action_just_released("move_run"):
+		end_move_run();
+
+# player run toggle
+func start_move_run(): #start sprinting
+	current_speed = run_speed;
+	_tween_fov(80);
+
+func end_move_run(): #end sprinting
+	current_speed = walk_speed;
+	_tween_fov(player_vars.fov);
+
+func _tween_fov(FOV):
+	var tween = get_tree().create_tween()
+	tween.tween_property(player_camera, "fov", FOV, 0.1);

@@ -1,9 +1,12 @@
 extends Node
 
 # player health stuff
-var playerHealth : int = 100;
-var maxHealth : int = 100;
+var health : int = 100;
+var stamina : float = 100;
+var max_health : int = 100;
 
+# rendering
+var fov : float = 70;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
