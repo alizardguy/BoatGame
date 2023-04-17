@@ -12,6 +12,10 @@ const jump_velocity : float = 4.5;
 # Get third person player camera
 @onready var player_camera: Camera3D = get_node("CameraOrbit/Camera3D")
 
+# Get player collider
+
+@onready var main_collider : CollisionShape3D = get_node("main_collider");
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -41,20 +45,34 @@ func _physics_process(delta):
 		
 	move_and_slide();
 	
+	# toggle run
 	if Input.is_action_just_pressed("move_run"):
 		start_move_run();
 	if Input.is_action_just_released("move_run"):
 		end_move_run();
+	
+	# toggle crouch
+	if Input.is_action_just_pressed("move_crouch"):
+		toggle_move_crouch(true);
+	if Input.is_action_just_released("move_crouch"):
+		toggle_move_crouch(false);
 
 # player run toggle
 func start_move_run(): #start sprinting
 	current_speed = run_speed;
-	_tween_fov(80);
+	_tween_fov(80, 0.1);
 
 func end_move_run(): #end sprinting
 	current_speed = walk_speed;
-	_tween_fov(player_vars.fov);
+	_tween_fov(player_vars.fov, 0.1);
 
-func _tween_fov(FOV):
+func _tween_fov(FOV, SPEED):
 	var tween = get_tree().create_tween()
-	tween.tween_property(player_camera, "fov", FOV, 0.1);
+	tween.tween_property(player_camera, "fov", FOV, SPEED);
+
+# crouch toggle
+func toggle_move_crouch(state):
+	if state == true:
+		main_collider.shape.height = 0.7;
+	elif state == false:
+		main_collider.shape.height = 1;

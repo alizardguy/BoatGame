@@ -29,10 +29,10 @@ height = 1.0
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ayc0t")
 
-[node name="Capsule Collider" type="CollisionShape3D" parent="."]
+[node name="main_collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pm4tw")
 
-[node name="visual" type="MeshInstance3D" parent="Capsule Collider"]
+[node name="visual" type="MeshInstance3D" parent="main_collider"]
 mesh = SubResource("CapsuleMesh_6tewa")
 
 [node name="CameraOrbit" type="Node3D" parent="."]
