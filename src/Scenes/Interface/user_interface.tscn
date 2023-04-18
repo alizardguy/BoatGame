@@ -10,6 +10,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_w1xjv")
+_debug_holder = NodePath("debug")
+_fps_display = NodePath("debug/fps_debug")
+_hp_display = NodePath("debug/hp_debug")
 
 [node name="debug" type="Control" parent="."]
 anchors_preset = 0

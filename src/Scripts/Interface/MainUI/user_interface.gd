@@ -2,18 +2,26 @@ extends Control
 
 var player_vars;
 
-# debug UI slots
-var debug_holder;
-var hp_display;
-var fps_display;
+# node paths for UI parts
+@export_node_path("Control") var _debug_holder:NodePath;
+@export_node_path("Label") var _fps_display:NodePath;
+@export_node_path("Label") var _hp_display:NodePath;
 
+
+# get nodes
+var debug_holder:Control;
+var fps_display:Label;
+var hp_display:Label;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Get global vars
 	player_vars = get_node("/root/PlayerVariables");
-	hp_display = get_node("debug/hp_debug");
-	fps_display = get_node("debug/fps_debug");
-	debug_holder = get_node("debug");
+	
+	# Get nodes for UI parts
+	debug_holder = get_node_or_null(_debug_holder);
+	hp_display = get_node_or_null(_hp_display);
+	fps_display = get_node_or_null(_fps_display)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
