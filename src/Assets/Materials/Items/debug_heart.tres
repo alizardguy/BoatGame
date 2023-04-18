@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://fu4kykl250jj"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="1_re1s0"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_re1s0")
+shader_parameter/color = Color(0.729412, 0.0313726, 0.364706, 1)
+shader_parameter/shadow = 0.167
+shader_parameter/shadow_width = 0.215
+shader_parameter/shadow_color = Color(0.705, 0.705, 0.705, 0.705)
+shader_parameter/_specular_smoothness = 0.243
+shader_parameter/_specular_strength = 0.075
+shader_parameter/_glossiness = 0.377
+shader_parameter/_rim_size = 0.019
+shader_parameter/_rim_smoothness = 0.386
