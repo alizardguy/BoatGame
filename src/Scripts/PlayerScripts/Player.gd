@@ -10,10 +10,12 @@ const jump_velocity : float = 4.5;
 @onready var player_vars = get_node("/root/PlayerVariables");
 
 # Get third person player camera
-@onready var player_camera: Camera3D = get_node("CameraOrbit/Camera3D")
+@export_node_path("Camera3D") var _player_camera:NodePath;
+@export_node_path("SpringArm3D") var _camera_spring:NodePath;
+@onready var player_camera: Camera3D = get_node_or_null(_player_camera);
+@onready var camera_spring: SpringArm3D = get_node_or_null(_camera_spring);
 
 # Get player collider
-
 @onready var main_collider : CollisionShape3D = get_node("main_collider");
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.

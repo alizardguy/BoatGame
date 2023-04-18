@@ -28,6 +28,7 @@ height = 1.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ayc0t")
+_player_camera = NodePath("CameraOrbit/SpringArm3D/Camera3D")
 
 [node name="main_collider" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_pm4tw")
@@ -36,8 +37,14 @@ shape = SubResource("CapsuleShape3D_pm4tw")
 mesh = SubResource("CapsuleMesh_6tewa")
 
 [node name="CameraOrbit" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.944313, 0.329048, 0, -0.329048, 0.944313, 0, 0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 0.944313, 0.329048, 0, -0.329048, 0.944313, 0, 0, 0)
 script = ExtResource("3_yl8ni")
 
-[node name="Camera3D" type="Camera3D" parent="CameraOrbit"]
-transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 2.38419e-07, 4)
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraOrbit"]
+transform = Transform3D(1, 0, 0, 0, 0.944313, -0.329048, 0, 0.329048, 0.944313, -0.00378895, 0.886198, 0.303152)
+spring_length = 3.0
+margin = 0.09
+
+[node name="Camera3D" type="Camera3D" parent="CameraOrbit/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.944313, 0.329048, 0, -0.329048, 0.944313, 0, 1.66619, 3.77725)
+current = true
