@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://5euuirsrq1l3"]
+
+[ext_resource type="Script" path="res://Scripts/Items/collectible_item_base.gd" id="1_eurlb"]
+[ext_resource type="PackedScene" uid="uid://d388fk4thrx47" path="res://Assets/Mesh/Items/Collectibles/DebugHeart.glb" id="2_dr574"]
+
+[node name="small_collectible_heart" type="Node"]
+script = ExtResource("1_eurlb")
+
+[node name="DebugHeart" parent="." instance=ExtResource("2_dr574")]

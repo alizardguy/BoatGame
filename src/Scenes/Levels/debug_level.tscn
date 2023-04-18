@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7otswbyblheq"]
+[gd_scene load_steps=18 format=3 uid="uid://c7otswbyblheq"]
 
 [ext_resource type="Shader" path="res://Assets/Shaders/oceanToon.gdshader" id="1_7m3tt"]
 [ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="2_2tb5w"]
 [ext_resource type="PackedScene" uid="uid://dl85ec2cwq75b" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
 [ext_resource type="PackedScene" uid="uid://b3skrw3yc1oum" path="res://Scenes/Interface/user_interface.tscn" id="4_7foum"]
+[ext_resource type="PackedScene" uid="uid://d388fk4thrx47" path="res://Assets/Mesh/Items/Collectibles/DebugHeart.glb" id="5_g648u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ybka"]
 render_priority = 0
@@ -136,3 +137,6 @@ transform = Transform3D(1, 0, 0, 0, 0.469225, 0.883079, 0, -0.883079, 0.469225, 
 environment = SubResource("Environment_nl4f7")
 
 [node name="user_interface" parent="." instance=ExtResource("4_7foum")]
+
+[node name="DebugHeart" parent="." instance=ExtResource("5_g648u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84469, 1.67267, -4.54701)
