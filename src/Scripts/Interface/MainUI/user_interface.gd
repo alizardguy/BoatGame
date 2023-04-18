@@ -25,7 +25,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	hp_display.text = str(player_vars.health) + "/" + str(player_vars.max_health) + " HP";
 	fps_display.text = str(Engine.get_frames_per_second()) + " FPS";
 	# Toggle debug 
