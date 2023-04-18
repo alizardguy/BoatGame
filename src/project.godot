@@ -15,8 +15,8 @@ config/description="a lil game."
 run/main_scene="res://Scenes/Levels/debug_level.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 boot_splash/bg_color=Color(0.0156863, 0.160784, 0.188235, 1)
-boot_splash/image="res://TempIcon.png"
-config/icon="res://TempIcon.png"
+boot_splash/image="res://Assets/Images/Boot/water_alpha_boot.png"
+config/icon="res://Assets/Images/Icons/App/temp_icon.png"
 
 [autoload]
 

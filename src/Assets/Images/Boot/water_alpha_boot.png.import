@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s03g0kdja7ex"
-path="res://.godot/imported/TempIcon.png-0aafff68de491a40ab255d2ce6f9e0da.ctex"
+uid="uid://smp614tx3a16"
+path="res://.godot/imported/water_alpha_boot.png-b1877e47e0dfcdbf507c0fe5a483694c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TempIcon.png"
-dest_files=["res://.godot/imported/TempIcon.png-0aafff68de491a40ab255d2ce6f9e0da.ctex"]
+source_file="res://Assets/Images/Boot/water_alpha_boot.png"
+dest_files=["res://.godot/imported/water_alpha_boot.png-b1877e47e0dfcdbf507c0fe5a483694c.ctex"]
 
 [params]
 
