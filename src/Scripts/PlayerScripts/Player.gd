@@ -19,14 +19,14 @@ const jump_velocity : float = 4.5;
 @onready var main_collider : CollisionShape3D = get_node("main_collider");
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity");
 
 func _ready():
 	current_speed = walk_speed;
 
 # main physics process
 func _physics_process(delta):
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta;
 

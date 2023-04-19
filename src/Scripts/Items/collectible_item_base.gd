@@ -6,3 +6,6 @@ extends Node3D
 
 func _collected() -> void:
 	print("collected");
+
+func _ready():
+	print("collectible in scene");

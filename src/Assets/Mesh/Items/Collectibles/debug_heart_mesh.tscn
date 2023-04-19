@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://fv7yq5n0p6lu"]
-
-[ext_resource type="PackedScene" uid="uid://d388fk4thrx47" path="res://Assets/Mesh/Items/Collectibles/DebugHeart.glb" id="1_j4wvb"]
-[ext_resource type="Material" uid="uid://fu4kykl250jj" path="res://Assets/Materials/Items/debug_heart.tres" id="2_x7pqc"]
-
-[node name="DebugHeart" instance=ExtResource("1_j4wvb")]
-
-[node name="Circle001" parent="." index="0"]
-surface_material_override/0 = ExtResource("2_x7pqc")
