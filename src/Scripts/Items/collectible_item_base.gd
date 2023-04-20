@@ -4,8 +4,12 @@ class_name CollectibleItemBase
 
 extends Node3D
 
-func _collected() -> void:
+var collect_value: float;
+var collect_type: String;
+
+func collected():
 	print("collected");
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
 	print("collectible in scene");

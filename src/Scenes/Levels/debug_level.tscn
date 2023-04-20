@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://Assets/Shaders/basicToon.gdshader" id="2_2tb5w"]
 [ext_resource type="PackedScene" uid="uid://dl85ec2cwq75b" path="res://Scenes/Prefabs/Player.tscn" id="3_13rih"]
 [ext_resource type="PackedScene" uid="uid://b3skrw3yc1oum" path="res://Scenes/Interface/user_interface.tscn" id="4_7foum"]
-[ext_resource type="PackedScene" uid="uid://0io05nhmegot" path="res://Scenes/Prefabs/Collectibles/small_heart_item.tscn" id="5_ipaxp"]
+[ext_resource type="PackedScene" uid="uid://xo0qoax7xvma" path="res://Scenes/Prefabs/Collectibles/basic_heart.tscn" id="5_b4um4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ybka"]
 render_priority = 0
@@ -138,5 +138,5 @@ environment = SubResource("Environment_nl4f7")
 
 [node name="user_interface" parent="." instance=ExtResource("4_7foum")]
 
-[node name="small_heart_item" parent="." instance=ExtResource("5_ipaxp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64301, 1.63412, -4.62417)
+[node name="basic_heart" parent="." instance=ExtResource("5_b4um4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26652, 1.94609, -4.4435)
